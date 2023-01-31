@@ -1,27 +1,9 @@
-# Setup
+# Tor server docker image.
 
-Create a directory inside the tor directory for your service.
+Since we plan to extend our dns to tor we needed a good tor docker image. Here it is.
 
-The **tor** directory and torrc file must have a UID and GID of "1001"
+# Info
+
+The hidden services must be mounted to `/var/lib/tor` directory and both the folder and its contents must be assigned a UID and GID of "1001".
 
 `sudo chown 1001:1001 -R ./tor -R`
-
-# torrc
-
-```
-HiddenServiceDir /var/lib/tor/your_service/
-HiddenServicePort 80 192.168.1.10:80
-```
-
-# docker-compose.yml
-
-```
-version: "3"
-services:
-  tor:
-    image: docker-tor:latest
-    restart: unless-stopped
-    volumes:
-       - ./tor:/var/lib/tor/ 
-       - ./torrc:/etc/tor/torrc
-```
