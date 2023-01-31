@@ -1,0 +1,8 @@
+version: "3"
+services:
+  tor:
+    image: docker-tor:latest
+    restart: unless-stopped
+    volumes:
+       - ./tor:/var/lib/tor/ 
+       - ./torrc:/etc/tor/torrc
