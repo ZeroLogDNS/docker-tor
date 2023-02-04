@@ -1,7 +1,6 @@
 ExcludeNodes {US},{CA},{AF},{DZ},{AS},{AO},{AU},{KH},{IO},{CN},{JP},{CR},{IS}
 SOCKSPolicy reject *
 
-
 HiddenServiceDir /var/lib/tor/tcp/
 HiddenServicePort 53 DNS:53
 
